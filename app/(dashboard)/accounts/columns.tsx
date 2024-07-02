@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { client } from '@/lib/hono';
 import { ColumnDef } from '@tanstack/react-table';
 import { ArrowUpDown } from 'lucide-react';
+import Actions from './actions';
 
 export type ResponseType = InferResponseType<
   // filtered down to just look for 200 responses, which removes the error from this request
@@ -50,5 +51,9 @@ export const columns: ColumnDef<ResponseType>[] = [
         </Button>
       );
     },
+  },
+  {
+    id: 'actions',
+    cell: ({ row }) => <Actions id={row.original.id} />,
   },
 ];
