@@ -146,6 +146,40 @@ const app = new Hono()
     }
   )
   .post(
+    // POST to bulk create transactions via CSV import
+    '/bulk-create',
+    clerkMiddleware(),
+    zValidator(
+      'json',
+      z.array(
+        insertTransactionSchema.omit({
+          id: true,
+        })
+      )
+    ),
+    async (c) => {
+      const auth = getAuth(c);
+      const values = c.req.valid('json');
+
+      if (!auth?.userId) {
+        return c.json({ error: 'Unauthorised' }, 401);
+      }
+
+      const data = await db
+        .insert(transactions)
+        .values(
+          values.map((value) => ({
+            id: createId(),
+            ...value,
+          }))
+        )
+        .returning();
+
+      return c.json({ data });
+    }
+  )
+  .post(
+    // POST method to bulk delete transactions
     '/bulk-delete',
     clerkMiddleware(),
     zValidator(
