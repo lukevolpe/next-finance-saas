@@ -12,3 +12,13 @@ export function convertAmountToMilliunits(amount: number) {
 export function convertAmountFromMilliunits(amount: number) {
   return Math.round(amount / 1000);
 }
+
+export function formatCurrency(value: number) {
+  const finalValue = convertAmountFromMilliunits(value);
+
+  return Intl.NumberFormat('en-GB', {
+    style: 'currency',
+    currency: 'GBP',
+    minimumFractionDigits: 2,
+  }).format(finalValue);
+}
