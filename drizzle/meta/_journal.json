@@ -1,33 +1,12 @@
 {
-  "version": "5",
-  "dialect": "pg",
+  "version": "7",
+  "dialect": "postgresql",
   "entries": [
     {
       "idx": 0,
-      "version": "5",
-      "when": 1719693433053,
-      "tag": "0000_known_spencer_smythe",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1719694011819,
-      "tag": "0001_faithful_grim_reaper",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1720031910405,
-      "tag": "0002_oval_nicolaos",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1720108682882,
-      "tag": "0003_solid_skreet",
+      "version": "7",
+      "when": 1720717225039,
+      "tag": "0000_productive_steve_rogers",
       "breakpoints": true
     }
   ]
