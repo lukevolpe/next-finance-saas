@@ -158,7 +158,7 @@ const app = new Hono().get(
 
     return c.json({
       data: {
-        remainingAmout: currentPeriod.remaining,
+        remainingAmount: currentPeriod.remaining,
         remainingChange,
         incomeAmount: currentPeriod.income,
         incomeChange,
