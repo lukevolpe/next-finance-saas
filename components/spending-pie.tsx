@@ -6,12 +6,13 @@ import {
   SelectItem,
 } from '@/components/ui/select';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { FileSearch, PieChart, Radar, Target } from 'lucide-react';
+import { FileSearch, Loader2, PieChart, Radar, Target } from 'lucide-react';
 import { useState } from 'react';
 
 import { PieVariant } from './pie-variant';
 import { RadarVariant } from './radar-variant';
 import { RadialVariant } from './radial-variant';
+import { Skeleton } from './ui/skeleton';
 
 type Props = {
   data?: {
@@ -79,3 +80,20 @@ const SpendingPie = ({ data = [] }: Props) => {
 };
 
 export default SpendingPie;
+
+// Loading state for the spending pie
+export const SpendingPieLoading = () => {
+  return (
+    <Card className="border-none drop-shadow-sm">
+      <CardHeader className="flex space-y-2 lg:space-y-0 lg:flex-row lg:items-center jusify-between">
+        <Skeleton className="h-8 w-48" />
+        <Skeleton className="h-8 lg:w-[120px] w-full" />
+      </CardHeader>
+      <CardContent className="h-[350px] w-full flex items-center justify-center">
+        <div className="h-[350px] w-full flex items-center justify-center">
+          <Loader2 className="size-6 text-slate-300 animate-spin" />
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
